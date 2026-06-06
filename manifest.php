@@ -11,7 +11,8 @@ $manifest['description'] = __(
 	'fw'
 );
 
-$manifest['version']    = '1.0.8';
+$manifest['version']    = '1.0.9';
+$manifest['github_update'] = 'UnysonPlus/UnysonPlus-Post-Types-Extension';
 $manifest['display']    = true;
 $manifest['standalone'] = true;
 
