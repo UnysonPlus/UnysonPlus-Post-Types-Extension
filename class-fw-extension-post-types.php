@@ -733,6 +733,30 @@ class FW_Extension_Post_Types extends FW_Extension {
 		);
 	}
 
+	/**
+	 * The page options wrapped in the standard Unyson metabox-holder layout: one
+	 * border-less `group` inside a single `box`, so the Post Types and Taxonomies
+	 * lists read as one panel without inner row borders (matches the Breadcrumbs /
+	 * Page Builder settings look). Leaf option ids are unchanged, so the save and
+	 * enqueue paths keep using get_page_options().
+	 *
+	 * @return array
+	 */
+	public function get_page_boxes() {
+		return array(
+			'main_box' => array(
+				'title'   => '',
+				'type'    => 'box',
+				'options' => array(
+					'group_main' => array(
+						'type'    => 'group',
+						'options' => $this->get_page_options(),
+					),
+				),
+			),
+		);
+	}
+
 	/* ---------------------------------------------------------------------- *
 	 * Admin menu + page
 	 * ---------------------------------------------------------------------- */
@@ -874,8 +898,7 @@ class FW_Extension_Post_Types extends FW_Extension {
 			return;
 		}
 
-		$options = $this->get_page_options();
-		$values  = array(
+		$values = array(
 			self::OPTION_ID     => $this->get_definitions(),
 			self::TAX_OPTION_ID => $this->get_taxonomy_definitions(),
 		);
@@ -894,11 +917,7 @@ class FW_Extension_Post_Types extends FW_Extension {
 
 			<form method="post" action="" style="margin-top:1.5em">
 				<?php wp_nonce_field( self::NONCE ); ?>
-				<div class="postbox">
-					<div class="inside">
-						<?php echo fw()->backend->render_options( $options, $values ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-					</div>
-				</div>
+				<?php echo fw()->backend->render_options( $this->get_page_boxes(), $values ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 				<p class="submit">
 					<button type="submit" class="button button-primary"><?php esc_html_e( 'Save Changes', 'fw' ); ?></button>
 				</p>
