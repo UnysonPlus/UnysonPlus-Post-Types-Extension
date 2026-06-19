@@ -905,7 +905,7 @@ class FW_Extension_Post_Types extends FW_Extension {
 		?>
 		<div class="wrap fw-ext-post-types">
 			<h1 class="wp-heading-inline"><?php esc_html_e( 'Post Types &amp; Taxonomies', 'fw' ); ?></h1>
-			<p class="description" style="max-width:50em">
+			<p class="description">
 				<?php esc_html_e( 'Create custom post types and taxonomies without writing code. Add a row for each, set its labels, key and features, then save. New post types appear in the admin menu and can be targeted by the Custom Fields extension.', 'fw' ); ?>
 			</p>
 
