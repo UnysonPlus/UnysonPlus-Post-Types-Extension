@@ -320,7 +320,15 @@ class FW_Extension_Post_Types extends FW_Extension {
 
 			case 'dashicon':
 			default:
-				$icon = isset( $mp['dashicon']['icon'] ) ? (string) $mp['dashicon']['icon'] : '';
+				// The icon value is now the modern engine's array shape
+				// ({ type:'icon-font', 'icon-class':'dashicons dashicons-book' }),
+				// but a legacy string may still be stored — read either. A
+				// non-Dashicon pick has no dashicons-* token, so it safely
+				// falls back to the default.
+				$raw  = isset( $mp['dashicon']['icon'] ) ? $mp['dashicon']['icon'] : '';
+				$icon = is_array( $raw )
+					? ( isset( $raw['icon-class'] ) ? (string) $raw['icon-class'] : '' )
+					: (string) $raw;
 				return preg_match( '/dashicons-[a-z0-9-]+/', $icon, $m ) ? $m[0] : $default;
 		}
 	}
@@ -639,10 +647,15 @@ class FW_Extension_Post_Types extends FW_Extension {
 						'choices'      => array(
 							'dashicon' => array(
 								'icon' => array(
+									// Modern icon engine (the legacy FA4 `icon` type
+									// is retired). The picker's Dashicons pack covers
+									// admin menu icons; a legacy string value like
+									// 'dashicons dashicons-admin-post' is migrated to
+									// the array shape by the engine, and
+									// resolve_menu_icon() reads either shape.
 									'type'  => 'icon',
-									'set'   => 'dashicons',
 									'label' => __( 'Dashicon', 'fw' ),
-									'desc'  => __( 'Auto-colored to match the admin scheme.', 'fw' ),
+									'desc'  => __( 'Pick a Dashicon (auto-colored to match the admin scheme). Other packs are available but only Dashicons apply to the admin menu.', 'fw' ),
 									'value' => 'dashicons dashicons-admin-post',
 								),
 							),
