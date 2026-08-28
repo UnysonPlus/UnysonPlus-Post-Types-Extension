@@ -90,7 +90,7 @@
 	margin-bottom: 1.5em;
 	background: #fff;
 	border: 1px solid #c3c4c7;
-	border-left: 4px solid #2271b1;
+	border-left: 4px solid var(--fw-accent, #2271b1);
 }
 
 .fw-ext-post-types .fw-pt-empty p {
@@ -147,7 +147,7 @@
 	width: 24px;
 	height: 24px;
 	font-size: 24px;
-	color: #2271b1;
+	color: var(--fw-accent, #2271b1);
 }
 
 .fw-ext-post-types .fw-pt-blueprint__head h3 {
