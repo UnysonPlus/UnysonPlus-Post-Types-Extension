@@ -168,6 +168,8 @@ class FW_Extension_Post_Types extends FW_Extension {
 		}
 
 		/**
+		 * Fires after post type and taxonomy definitions change, passing new and previous definitions so listeners can invalidate registration-dependent caches.
+		 *
 		 * Fires after the post type / taxonomy definitions change.
 		 *
 		 * Use it to invalidate anything keyed on the set of registered post types.
@@ -269,6 +271,8 @@ class FW_Extension_Post_Types extends FW_Extension {
 		}
 
 		/**
+		 * Filters the ordering of Unyson+ admin submenu items by page slug, letting code reorder the submenu.
+		 *
 		 * The leading order of the Unyson+ submenu, by page slug. The parent slug
 		 * itself is the "Extensions" landing item and stays on top.
 		 *

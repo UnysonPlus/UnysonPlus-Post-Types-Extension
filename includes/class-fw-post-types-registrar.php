@@ -128,6 +128,8 @@ class FW_Post_Types_Registrar {
 		$args = $this->build_post_type_args( $def, $slug );
 
 		/**
+		 * Filters the final register_post_type() args for a user-created post type before it is registered, passing the slug and saved definition row.
+		 *
 		 * Filter the final register_post_type() args for a user-created post type.
 		 *
 		 * @param array  $args The arguments passed to register_post_type().
@@ -253,6 +255,8 @@ class FW_Post_Types_Registrar {
 		$args = $this->build_taxonomy_args( $def, $slug );
 
 		/**
+		 * Filters the final register_taxonomy() args for a user-created taxonomy before registration, passing the slug, bound object types, and definition row.
+		 *
 		 * Filter the final register_taxonomy() args for a user-created taxonomy.
 		 *
 		 * @param array    $args         The arguments passed to register_taxonomy().
@@ -447,6 +451,8 @@ class FW_Post_Types_Registrar {
 		}
 
 		/**
+		 * Filters the query vars applied to a user-created post type's archive, given the post type, definition, and query.
+		 *
 		 * Filter the query vars applied to a user-created post type's archive.
 		 *
 		 * @param array    $vars      Query vars to set (may be empty).

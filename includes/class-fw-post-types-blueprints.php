@@ -320,6 +320,8 @@ class FW_Post_Types_Blueprints {
 		);
 
 		/**
+		 * Filters the available Post Types blueprints (slug to definition map) offered when creating a new post type or taxonomy.
+		 *
 		 * Filter the available Post Types blueprints.
 		 *
 		 * @param array $b slug => blueprint definition.
