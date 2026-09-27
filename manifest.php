@@ -11,7 +11,7 @@ $manifest['description'] = __(
 	'fw'
 );
 
-$manifest['version']    = '1.0.19';
+$manifest['version']    = '1.0.20';
 $manifest['github_update'] = 'UnysonPlus/UnysonPlus-Post-Types-Extension';
 $manifest['display']    = true;
 $manifest['standalone'] = true;
@@ -28,6 +28,12 @@ $manifest['requires_wp']  = '5.8';
 
 /**
  * Changelog ----------------------------------------------------------------
+ *
+ * 1.0.20 - AI Assistant abilities. With the AI Assistant extension active, the AI can
+ *         work with post types: post-types-list, post-types-save, post-types-save-taxonomy and
+ *         post-types-install-blueprint, all through save_definitions() — undoable through undo_change / page revisions.
+ *         See includes/ai-abilities.php.
+ *
  *
  * 1.0.17 - Blueprints now use the field types Custom Fields gained in 0.1.15
  *          instead of working around them: Events carries real date-and-time

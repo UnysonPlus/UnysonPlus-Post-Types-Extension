@@ -58,6 +58,8 @@ class FW_Extension_Post_Types extends FW_Extension {
 		require_once $dir . 'class-fw-post-types-validator.php';
 		require_once $dir . 'class-fw-post-types-blueprints.php';
 		require_once $dir . 'class-fw-post-types-porter.php';
+		// AI Assistant abilities (only registered while that extension is active).
+		require_once $dir . 'ai-abilities.php';
 		require_once $dir . 'class-fw-post-types-admin-page.php';
 
 		$this->registrar = new FW_Post_Types_Registrar( $this );
