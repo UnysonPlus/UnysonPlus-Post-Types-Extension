@@ -548,7 +548,7 @@ class FW_Post_Types_Schema {
 
 				'tab_tax_visibility' => array(
 					'type'    => 'tab',
-					'title'   => __( 'Visibility &amp; URLs', 'fw' ),
+					'title'   => __( 'Visibility & URLs', 'fw' ),
 					'options' => array(
 						'group_tax_visibility' => array(
 							'type'    => 'group',

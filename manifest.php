@@ -11,7 +11,7 @@ $manifest['description'] = __(
 	'fw'
 );
 
-$manifest['version']    = '1.0.20';
+$manifest['version']    = '1.0.21';
 $manifest['github_update'] = 'UnysonPlus/UnysonPlus-Post-Types-Extension';
 $manifest['display']    = true;
 $manifest['standalone'] = true;
@@ -28,6 +28,14 @@ $manifest['requires_wp']  = '5.8';
 
 /**
  * Changelog ----------------------------------------------------------------
+ *
+ * 1.0.21 - Downloads work on the front end. A post with the Downloads blueprint's File
+ *         field gets a download box under its content, served through ?fw_download=<id> so
+ *         the page never prints the file's address. "Requires an email address" now gates
+ *         it: visitors enter an email, which is kept under Form Entries (when Forms stores
+ *         entries) and fired on fw_ext_post_types_download_requested, and get a signed link
+ *         valid for a day. Filter fw_ext_post_types_download_box turns the box off when a
+ *         template places its own button. See includes/class-fw-post-types-downloads.php.
  *
  * 1.0.20 - AI Assistant abilities. With the AI Assistant extension active, the AI can
  *         work with post types: post-types-list, post-types-save, post-types-save-taxonomy and

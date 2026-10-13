@@ -61,8 +61,12 @@ class FW_Extension_Post_Types extends FW_Extension {
 		// AI Assistant abilities (only registered while that extension is active).
 		require_once $dir . 'ai-abilities.php';
 		require_once $dir . 'class-fw-post-types-admin-page.php';
+		require_once $dir . 'class-fw-post-types-downloads.php';
 
 		$this->registrar = new FW_Post_Types_Registrar( $this );
+
+		// Downloads blueprint: the download box, the email gate and the file endpoint.
+		new FW_Post_Types_Downloads();
 
 		// Register stored post types + taxonomies on both front-end and admin.
 		add_action( 'init', array( $this->registrar, 'register_all' ), 20 );
